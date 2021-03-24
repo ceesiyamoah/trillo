@@ -13,12 +13,19 @@
 		z-index: 2000;
 		box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
 		cursor: pointer;
+		@include respond(tab-port) {
+			top: 4rem;
+			right: 4rem;
+		}
+		@include respond(phone) {
+			top: 3rem;
+			right: 3rem;
+		}
 	}
 	&__background {
 		width: 6rem;
 		height: 6rem;
 		border-radius: 50%;
-		background-color: red;
 		position: fixed;
 		top: 6.5rem;
 		right: 6.5rem;
@@ -29,6 +36,14 @@
 		);
 		//transform: scale(80);
 		transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+		@include respond(tab-port) {
+			top: 4.5rem;
+			right: 4.5rem;
+		}
+		@include respond(phone) {
+			top: 3.5rem;
+			right: 3.5rem;
+		}
 	}
 	&__nav {
 		height: 100vh;
@@ -43,7 +58,7 @@
 	}
 	&__list {
 		list-style: none;
-		@include centerHorizontalVertical;
+		@include absCenter;
 		text-align: center;
 	}
 	&__item {
@@ -76,8 +91,6 @@
 
 		&:hover,
 		&:active {
-			//background-color: red;
-
 			color: $color-primary;
 			background-position: 100%;
 			transform: translateX(1rem);
@@ -122,11 +135,13 @@
 		}
 	}
 
-	&__button:hover &__icon::before {
-		top: -1rem;
-	}
-	&__button:hover &__icon::after {
-		top: 1rem;
+	&__button:hover &__icon {
+		&::before {
+			top: -1rem;
+		}
+		&::after {
+			top: 1rem;
+		}
 	}
 
 	&__checkbox:checked + &__button &__icon {
