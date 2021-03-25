@@ -9,6 +9,12 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.3s;
+	backdrop-filter: blur(10px);
+
+	@supports (backdrop-filter: blur(10px)) {
+		background-color: rgba($color-black, 0.2);
+		backdrop-filter: blur(10px);
+	}
 
 	&__content {
 		@include absCenter;
@@ -24,7 +30,7 @@
 	}
 
 	&__left {
-		width: 50%;
+		width: 33.333333%;
 		display: table-cell;
 
 		@include respond(tab-land) {
@@ -57,7 +63,6 @@
 	}
 	&__text {
 		font-size: 1.4rem;
-		margin-bottom: 4rem;
 		column-count: 2;
 		column-gap: 4rem;
 		column-rule: 1px solid $color-grey-light-2;
